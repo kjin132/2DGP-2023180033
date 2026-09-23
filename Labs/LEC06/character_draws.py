@@ -18,10 +18,9 @@ def move_Circle():
         x = center_x + radius * math.cos(angle)
         y = center_y + radius * math.sin(angle)
         angle += math.radians(speed)
-
-    clear_canvas()
-    character.draw(400, 300)
-    update_canvas()
+        clear_canvas()
+        character.draw(x, y)
+        update_canvas()
 
 def move_Rectangle():
     print("rectangle")
