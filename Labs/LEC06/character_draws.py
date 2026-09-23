@@ -1,10 +1,10 @@
 # 실습 과제 진행
 
 from pico2d import *
+import math
 open_canvas(800, 600)
 
 character = load_image("character.png")
-
 
 def move_Circle():
     print("circle")
@@ -13,6 +13,9 @@ def move_Circle():
     radius = 150
     angle = 0
     speed = 2
+
+    x = center_x + radius * math.cos(angle)
+    y = center_y + radius * math.sin(angle)
 
     clear_canvas()
     character.draw(400, 300)
