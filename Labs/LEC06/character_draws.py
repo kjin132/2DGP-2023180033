@@ -3,10 +3,15 @@
 from pico2d import *
 open_canvas(800, 600)
 
+character = load_image("character.png")
+
+
 def move_Circle():
     print("circle")
+
 def move_Rectangle():
     print("rectangle")
+
 def move_Triangle():
     print("triangle")
 
