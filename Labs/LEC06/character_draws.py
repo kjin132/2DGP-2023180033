@@ -8,6 +8,12 @@ character = load_image("character.png")
 
 def move_Circle():
     print("circle")
+
+    center_x, center_y = 400, 300
+    radius = 150
+    angle = 0
+    speed = 2
+
     clear_canvas()
     character.draw(400, 300)
     update_canvas()
