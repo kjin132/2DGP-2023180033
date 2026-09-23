@@ -14,8 +14,10 @@ def move_Circle():
     angle = 0
     speed = 2
 
-    x = center_x + radius * math.cos(angle)
-    y = center_y + radius * math.sin(angle)
+    while angle < math.radians(360):
+        x = center_x + radius * math.cos(angle)
+        y = center_y + radius * math.sin(angle)
+        angle += math.radians(speed)
 
     clear_canvas()
     character.draw(400, 300)
