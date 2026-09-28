@@ -58,6 +58,8 @@ def move_Triangle():
     while count < 3:
         target_x, target_y = points[(idx + 1) % 3]
 
+        dx, dy = target_x - x, target_y - y
+
         draw_character(x, y)
 
 while True:
