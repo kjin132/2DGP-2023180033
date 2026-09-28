@@ -47,7 +47,6 @@ def move_Rectangle():
     move_left()
 
 def move_Triangle():
-    print("triangle")
     points = [(400, 500), (200, 150), (600, 150)]
     speed = 5
 
