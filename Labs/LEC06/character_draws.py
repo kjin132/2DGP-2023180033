@@ -66,6 +66,7 @@ def move_Triangle():
             count += 1
         else:
             x += speed * dx / dist
+            y += speed * dy / dist
 
         draw_character(x, y)
 
