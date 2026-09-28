@@ -48,6 +48,8 @@ def move_Rectangle():
 
 def move_Triangle():
     print("triangle")
+    points = [(400, 500), (200, 150), (600, 150)]
+    speed = 5
 
 while True:
     move_Circle()
