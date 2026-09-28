@@ -69,7 +69,9 @@ def move_Triangle():
 
         draw_character(x, y)
 
-while True:
+running = True
+
+while running:
     move_Circle()
     move_Rectangle()
     move_Triangle()
