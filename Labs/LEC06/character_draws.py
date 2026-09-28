@@ -55,6 +55,9 @@ def move_Triangle():
     idx = 0
     count = 0
 
+    while count < 3:
+        draw_character(x, y)
+
 while True:
     move_Circle()
     move_Rectangle()
