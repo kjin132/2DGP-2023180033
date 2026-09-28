@@ -6,6 +6,12 @@ open_canvas(800, 600)
 
 character = load_image("character.png")
 
+def draw_character(x, y):
+    clear_canvas()
+    character.draw(x, y)
+    update_canvas()
+    delay(0.005)
+
 def move_Circle():
     center_x, center_y = 400, 300
     radius = 150
@@ -16,18 +22,12 @@ def move_Circle():
         x = center_x + radius * math.cos(angle)
         y = center_y + radius * math.sin(angle)
         angle += math.radians(speed)
-        clear_canvas()
-        character.draw(x, y)
-        update_canvas()
-        delay(0.005)
+        draw_character(x, y)
 
 def move_top():
     print("TOP")
     for x in range(50, 750, 5):
-        clear_canvas()
-        character.draw(x, 550)
-        update_canvas()
-        delay(0.005)
+        draw_character(x, 550)
     
 def move_right():
     print("RIGHT")
