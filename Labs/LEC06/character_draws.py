@@ -22,13 +22,13 @@ def move_Circle():
         delay(0.005)
 
 def move_top():
-    pass
+    print("TOP")
 def move_right():
-    pass
+    print("RIGHT")
 def move_bottom():
-    pass
+    print("BOTTOM")
 def move_left():
-    pass
+    print("LEFT")
 
 def move_Rectangle():
     print("rectangle")
