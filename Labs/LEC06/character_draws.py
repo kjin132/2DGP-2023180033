@@ -62,7 +62,7 @@ def move_Triangle():
         dist = math.hypot(dx, dy)
 
         if dist < speed:
-            pass
+            idx = (idx + 1) % 3
 
         draw_character(x, y)
 
