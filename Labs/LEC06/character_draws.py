@@ -23,7 +23,10 @@ def move_Circle():
 
 def move_Rectangle():
     print("rectangle")
-
+    move_top()
+    move_right()
+    move_bottom()
+    move_left()
 
 def move_Triangle():
     print("triangle")
