@@ -64,6 +64,8 @@ def move_Triangle():
         if dist < speed:
             idx = (idx + 1) % 3
             count += 1
+        else:
+            x += speed * dx / dist
 
         draw_character(x, y)
 
