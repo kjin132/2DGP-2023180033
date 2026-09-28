@@ -59,6 +59,7 @@ def move_Triangle():
         target_x, target_y = points[(idx + 1) % 3]
 
         dx, dy = target_x - x, target_y - y
+        dist = math.hypot(dx, dy)
 
         draw_character(x, y)
 
