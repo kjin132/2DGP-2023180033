@@ -2,22 +2,24 @@ import os
 
 from pico2d import *
 
+CANVAS_W, CANVAS_H = 800, 600
 SHEET_FILE = 'warrior_sheet.png'
 SHEET_W, SHEET_H = 256, 171
+CELL_W, CELL_H = 48, 48
 
 SCALE = 12
 FRAME_TIME = 0.1
 
 FRAMES = {
     'walk': [
-        (2, 44, 20, 31),
-        (113, 110, 19, 28),
-        (50, 110, 18, 29),
-        (70, 110, 18, 29),
-        (24, 44, 20, 31),
-        (200, 77, 21, 30),
-        (46, 44, 22, 31),
-        (70, 44, 22, 31),
+        (2, 44, 20, 31, 12, 10),
+        (113, 110, 19, 28, 12, 10),
+        (50, 110, 18, 29, 13, 9),
+        (70, 110, 18, 29, 13, 9),
+        (24, 44, 20, 31, 12, 10),
+        (200, 77, 21, 30, 11, 10),
+        (46, 44, 22, 31, 11, 9),
+        (70, 44, 22, 31, 11, 9),
     ],
 }
 
@@ -40,15 +42,22 @@ def wait(seconds):
 
 
 def draw_frame(sheet, frame):
-    fx, fy, fw, fh = frame
+    fx, fy, fw, fh, ox, oy = frame
+
+    dx = ox + fw / 2 - CELL_W / 2
+    dy = oy + fh / 2 - CELL_H / 2
+
+    x = CANVAS_W // 2 + dx * SCALE
+    y = CANVAS_H // 2 - dy * SCALE
+
     bottom = SHEET_H - fy - fh
 
     clear_canvas()
-    sheet.clip_draw(fx, bottom, fw, fh, 400, 300, fw * SCALE, fh * SCALE)
+    sheet.clip_draw(fx, bottom, fw, fh, x, y, fw * SCALE, fh * SCALE)
     update_canvas()
 
 
-open_canvas(800, 600)
+open_canvas(CANVAS_W, CANVAS_H)
 
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
