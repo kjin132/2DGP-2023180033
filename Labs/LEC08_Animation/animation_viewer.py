@@ -5,6 +5,8 @@ from pico2d import *
 SHEET_FILE = 'warrior_sheet.png'
 SHEET_W, SHEET_H = 256, 171
 
+SCALE = 12
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -13,7 +15,7 @@ def draw_frame(sheet, frame):
     bottom = SHEET_H - fy - fh
 
     clear_canvas()
-    sheet.clip_draw(fx, bottom, fw, fh, 400, 300)
+    sheet.clip_draw(fx, bottom, fw, fh, 400, 300, fw * SCALE, fh * SCALE)
     update_canvas()
 
 
