@@ -12,6 +12,8 @@ REPEAT = 5
 FRAME_TIME = 0.1
 PAUSE_TIME = 1.0
 
+PLAY_ORDER = ['walk', 'jump', 'attack1', 'attack2', 'attack3']
+
 FRAMES = {
     'walk': [
         (2, 44, 20, 31, 12, 10),
@@ -104,10 +106,7 @@ open_canvas(CANVAS_W, CANVAS_H)
 
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
-play_animation(sheet, 'walk')
-play_animation(sheet, 'jump')
-play_animation(sheet, 'attack1')
-play_animation(sheet, 'attack2')
-play_animation(sheet, 'attack3')
+for name in PLAY_ORDER:
+    play_animation(sheet, name)
 
 close_canvas()
