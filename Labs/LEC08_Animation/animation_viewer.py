@@ -111,14 +111,18 @@ def play_animation(sheet, name):
     wait(PAUSE_TIME)
 
 
-open_canvas(CANVAS_W, CANVAS_H)
+def main():
+    open_canvas(CANVAS_W, CANVAS_H)
 
-sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
+    sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
-while running:
-    for name in PLAY_ORDER:
-        if not running:
-            break
-        play_animation(sheet, name)
+    while running:
+        for name in PLAY_ORDER:
+            if not running:
+                break
+            play_animation(sheet, name)
 
-close_canvas()
+    close_canvas()
+
+
+main()
