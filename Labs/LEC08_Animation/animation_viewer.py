@@ -32,6 +32,13 @@ def handle_events():
             running = False
 
 
+def wait(seconds):
+    start = get_time()
+    while running and get_time() - start < seconds:
+        handle_events()
+        delay(0.01)
+
+
 def draw_frame(sheet, frame):
     fx, fy, fw, fh = frame
     bottom = SHEET_H - fy - fh
@@ -50,8 +57,8 @@ for frame in FRAMES['walk']:
     if not running:
         break
     draw_frame(sheet, frame)
-    delay(FRAME_TIME)
+    wait(FRAME_TIME)
 
-delay(1)
+wait(1)
 
 close_canvas()
