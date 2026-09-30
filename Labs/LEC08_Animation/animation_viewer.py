@@ -8,6 +8,7 @@ SHEET_W, SHEET_H = 256, 171
 CELL_W, CELL_H = 48, 48
 
 SCALE = 12
+REPEAT = 5
 FRAME_TIME = 0.1
 
 FRAMES = {
@@ -58,11 +59,12 @@ def draw_frame(sheet, frame):
 
 
 def play_animation(sheet, name):
-    for frame in FRAMES[name]:
-        if not running:
-            return
-        draw_frame(sheet, frame)
-        wait(FRAME_TIME)
+    for _ in range(REPEAT):
+        for frame in FRAMES[name]:
+            if not running:
+                return
+            draw_frame(sheet, frame)
+            wait(FRAME_TIME)
 
 
 open_canvas(CANVAS_W, CANVAS_H)
