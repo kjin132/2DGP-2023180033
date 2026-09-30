@@ -11,6 +11,9 @@ open_canvas(800, 600)
 
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
+sheet.draw(400, 300)
+update_canvas()
+
 delay(2)
 
 close_canvas()
