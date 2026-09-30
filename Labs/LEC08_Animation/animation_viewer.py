@@ -46,6 +46,13 @@ FRAMES = {
         (48, 2, 25, 37, 16, 6),
         (159, 2, 37, 33, 11, 12),
     ],
+    'attack3': [
+        (218, 44, 20, 31, 12, 10),
+        (134, 110, 18, 28, 13, 10),
+        (174, 110, 32, 27, 7, 10),
+        (208, 110, 35, 27, 5, 10),
+        (154, 110, 18, 28, 13, 10),
+    ],
 }
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -101,5 +108,6 @@ play_animation(sheet, 'walk')
 play_animation(sheet, 'jump')
 play_animation(sheet, 'attack1')
 play_animation(sheet, 'attack2')
+play_animation(sheet, 'attack3')
 
 close_canvas()
