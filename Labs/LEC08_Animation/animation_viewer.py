@@ -106,7 +106,10 @@ open_canvas(CANVAS_W, CANVAS_H)
 
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
-for name in PLAY_ORDER:
-    play_animation(sheet, name)
+while running:
+    for name in PLAY_ORDER:
+        if not running:
+            break
+        play_animation(sheet, name)
 
 close_canvas()
