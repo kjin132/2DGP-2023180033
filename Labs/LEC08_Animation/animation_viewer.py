@@ -57,16 +57,19 @@ def draw_frame(sheet, frame):
     update_canvas()
 
 
+def play_animation(sheet, name):
+    for frame in FRAMES[name]:
+        if not running:
+            return
+        draw_frame(sheet, frame)
+        wait(FRAME_TIME)
+
+
 open_canvas(CANVAS_W, CANVAS_H)
 
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
-for frame in FRAMES['walk']:
-    handle_events()
-    if not running:
-        break
-    draw_frame(sheet, frame)
-    wait(FRAME_TIME)
+play_animation(sheet, 'walk')
 
 wait(1)
 
