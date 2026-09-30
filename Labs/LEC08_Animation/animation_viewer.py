@@ -22,6 +22,14 @@ FRAMES = {
 }
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+running = True
+
+
+def handle_events():
+    global running
+    for event in get_events():
+        if event.type == SDL_QUIT:
+            running = False
 
 
 def draw_frame(sheet, frame):
@@ -38,6 +46,9 @@ open_canvas(800, 600)
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
 for frame in FRAMES['walk']:
+    handle_events()
+    if not running:
+        break
     draw_frame(sheet, frame)
     delay(FRAME_TIME)
 
