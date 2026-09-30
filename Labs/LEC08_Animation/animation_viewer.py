@@ -7,6 +7,19 @@ SHEET_W, SHEET_H = 256, 171
 
 SCALE = 12
 
+FRAMES = {
+    'walk': [
+        (2, 44, 20, 31),
+        (113, 110, 19, 28),
+        (50, 110, 18, 29),
+        (70, 110, 18, 29),
+        (24, 44, 20, 31),
+        (200, 77, 21, 30),
+        (46, 44, 22, 31),
+        (70, 44, 22, 31),
+    ],
+}
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -23,8 +36,10 @@ open_canvas(800, 600)
 
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
-draw_frame(sheet, (2, 44, 20, 31))
+for frame in FRAMES['walk']:
+    draw_frame(sheet, frame)
+    delay(0.5)
 
-delay(2)
+delay(1)
 
 close_canvas()
