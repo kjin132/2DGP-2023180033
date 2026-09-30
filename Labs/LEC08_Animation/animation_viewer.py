@@ -10,6 +10,7 @@ CELL_W, CELL_H = 48, 48
 SCALE = 12
 REPEAT = 5
 FRAME_TIME = 0.1
+PAUSE_TIME = 1.0
 
 FRAMES = {
     'walk': [
@@ -66,13 +67,13 @@ def play_animation(sheet, name):
             draw_frame(sheet, frame)
             wait(FRAME_TIME)
 
+    wait(PAUSE_TIME)
+
 
 open_canvas(CANVAS_W, CANVAS_H)
 
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
 play_animation(sheet, 'walk')
-
-wait(1)
 
 close_canvas()
