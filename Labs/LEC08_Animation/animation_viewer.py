@@ -6,6 +6,7 @@ SHEET_FILE = 'warrior_sheet.png'
 SHEET_W, SHEET_H = 256, 171
 
 SCALE = 12
+FRAME_TIME = 0.1
 
 FRAMES = {
     'walk': [
@@ -38,7 +39,7 @@ sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
 for frame in FRAMES['walk']:
     draw_frame(sheet, frame)
-    delay(0.5)
+    delay(FRAME_TIME)
 
 delay(1)
 
