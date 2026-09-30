@@ -23,6 +23,13 @@ FRAMES = {
         (46, 44, 22, 31, 11, 9),
         (70, 44, 22, 31, 11, 9),
     ],
+    'jump': [
+        (94, 44, 20, 31, 12, 10),
+        (90, 110, 21, 29, 11, 10),
+        (223, 77, 22, 30, 11, 9),
+        (2, 110, 22, 30, 11, 8),
+        (26, 110, 22, 30, 11, 8),
+    ],
 }
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -75,5 +82,6 @@ open_canvas(CANVAS_W, CANVAS_H)
 sheet = load_image(os.path.join(BASE_DIR, SHEET_FILE))
 
 play_animation(sheet, 'walk')
+play_animation(sheet, 'jump')
 
 close_canvas()
