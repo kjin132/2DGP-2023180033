@@ -4,3 +4,12 @@ import os
 CANVAS_WIDTH = 1200
 CANVAS_HEIGHT = 600
 SPRITE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sonic-sprite.png")
+
+
+def main():
+	open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+	close_canvas()
+
+
+if __name__ == "__main__":
+	main()
