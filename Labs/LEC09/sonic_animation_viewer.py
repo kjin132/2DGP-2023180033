@@ -134,6 +134,10 @@ def draw_frame(sprite_sheet, frame, x):
 	)
 
 
+def get_next_animation_index(animation_index):
+	return (animation_index + 1) % len(ANIMATIONS)
+
+
 IDLE_ANIMATION = ANIMATIONS[0]
 IDLE_FRAMES = IDLE_ANIMATION[3]
 FRAME_TIME = IDLE_ANIMATION[1]
@@ -170,7 +174,7 @@ def main():
 		if pause_started_at is not None:
 			if now - pause_started_at >= PAUSE_TIME:
 				pause_started_at = None
-				animation_index = (animation_index + 1) % len(ANIMATIONS)
+				animation_index = get_next_animation_index(animation_index)
 				frame_index = 0
 				repeat_count = 0
 				started_at = now
