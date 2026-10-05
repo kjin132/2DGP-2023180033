@@ -150,13 +150,16 @@ def handle_events():
 def main():
 	open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 	sprite_sheet = load_image(SPRITE_PATH)
+	frame_index = 0
 	running = True
 	while running:
 		running = handle_events()
 		if not running:
 			break
 		clear_canvas()
+		draw_frame(sprite_sheet, IDLE_FRAMES[frame_index], CENTER_X)
 		update_canvas()
+		frame_index = (frame_index + 1) % len(IDLE_FRAMES)
 		delay(0.01)
 	close_canvas()
 
