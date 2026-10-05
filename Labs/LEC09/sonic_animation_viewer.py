@@ -146,6 +146,15 @@ def get_x(moves, frames, frame_time, started_at, now):
 	return START_X + (END_X - START_X) * progress
 
 
+def validate_animations():
+	if len(ANIMATIONS) != 10:
+		raise ValueError("동작 수가 PRD와 다릅니다.")
+	if sum(len(animation[3]) for animation in ANIMATIONS) != 76:
+		raise ValueError("프레임 수가 PRD와 다릅니다.")
+	if any(frame_time <= 0 for _, frame_time, _, _ in ANIMATIONS):
+		raise ValueError("프레임 시간은 양수여야 합니다.")
+
+
 IDLE_ANIMATION = ANIMATIONS[0]
 IDLE_FRAMES = IDLE_ANIMATION[3]
 FRAME_TIME = IDLE_ANIMATION[1]
@@ -161,6 +170,7 @@ def handle_events():
 
 
 def main():
+	validate_animations()
 	open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 	sprite_sheet = load_image(SPRITE_PATH)
 	animation_index = 0
