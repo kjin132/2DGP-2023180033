@@ -151,7 +151,12 @@ def handle_events():
 def main():
 	open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 	sprite_sheet = load_image(SPRITE_PATH)
+	animation_index = 0
 	frame_index = 0
+	repeat_count = 0
+	pause_started_at = None
+	started_at = get_time()
+	frame_changed_at = started_at
 	running = True
 	while running:
 		running = handle_events()
