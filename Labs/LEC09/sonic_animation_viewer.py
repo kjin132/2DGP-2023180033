@@ -170,37 +170,39 @@ def main():
 	started_at = get_time()
 	frame_changed_at = started_at
 	running = True
-	while running:
-		running = handle_events()
-		if not running:
-			break
-		now = get_time()
-		name, frame_time, moves, frames = ANIMATIONS[animation_index]
-		x = get_x(moves, frames, frame_time, started_at, now)
-		clear_canvas()
-		draw_frame(sprite_sheet, frames[frame_index], x)
-		update_canvas()
-		if pause_started_at is not None:
-			if now - pause_started_at >= PAUSE_TIME:
-				pause_started_at = None
-				animation_index = get_next_animation_index(animation_index)
-				frame_index = 0
-				repeat_count = 0
-				started_at = now
-				frame_changed_at = now
-				name, frame_time, moves, frames = ANIMATIONS[animation_index]
-		elif now - frame_changed_at >= frame_time:
-			frame_changed_at = now
-			if frame_index + 1 < len(frames):
-				frame_index += 1
-			else:
-				repeat_count += 1
-				if repeat_count < REPEAT_COUNT:
+	try:
+		while running:
+			running = handle_events()
+			if not running:
+				break
+			now = get_time()
+			name, frame_time, moves, frames = ANIMATIONS[animation_index]
+			x = get_x(moves, frames, frame_time, started_at, now)
+			clear_canvas()
+			draw_frame(sprite_sheet, frames[frame_index], x)
+			update_canvas()
+			if pause_started_at is not None:
+				if now - pause_started_at >= PAUSE_TIME:
+					pause_started_at = None
+					animation_index = get_next_animation_index(animation_index)
 					frame_index = 0
+					repeat_count = 0
+					started_at = now
+					frame_changed_at = now
+					name, frame_time, moves, frames = ANIMATIONS[animation_index]
+			elif now - frame_changed_at >= frame_time:
+				frame_changed_at = now
+				if frame_index + 1 < len(frames):
+					frame_index += 1
 				else:
-					pause_started_at = now
-		delay(0.01)
-	close_canvas()
+					repeat_count += 1
+					if repeat_count < REPEAT_COUNT:
+						frame_index = 0
+					else:
+						pause_started_at = now
+			delay(0.01)
+	finally:
+		close_canvas()
 
 
 if __name__ == "__main__":
