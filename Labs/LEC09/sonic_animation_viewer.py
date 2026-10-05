@@ -134,6 +134,10 @@ def draw_frame(sprite_sheet, frame, x):
 	)
 
 
+IDLE_ANIMATION = ANIMATIONS[0]
+IDLE_FRAMES = IDLE_ANIMATION[3]
+
+
 def handle_events():
 	for event in get_events():
 		if event.type == SDL_QUIT:
