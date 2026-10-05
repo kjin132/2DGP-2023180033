@@ -162,11 +162,18 @@ def main():
 		running = handle_events()
 		if not running:
 			break
+		now = get_time()
+		name, frame_time, moves, frames = ANIMATIONS[animation_index]
 		clear_canvas()
-		draw_frame(sprite_sheet, IDLE_FRAMES[frame_index], CENTER_X)
+		draw_frame(sprite_sheet, frames[frame_index], CENTER_X)
 		update_canvas()
-		frame_index = (frame_index + 1) % len(IDLE_FRAMES)
-		delay(FRAME_TIME)
+		if now - frame_changed_at >= frame_time:
+			frame_changed_at = now
+			if frame_index + 1 < len(frames):
+				frame_index += 1
+			else:
+				frame_index = 0
+		delay(0.01)
 	close_canvas()
 
 
