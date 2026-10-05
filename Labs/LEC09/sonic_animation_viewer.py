@@ -136,6 +136,7 @@ def draw_frame(sprite_sheet, frame, x):
 
 IDLE_ANIMATION = ANIMATIONS[0]
 IDLE_FRAMES = IDLE_ANIMATION[3]
+FRAME_TIME = IDLE_ANIMATION[1]
 
 
 def handle_events():
@@ -160,7 +161,7 @@ def main():
 		draw_frame(sprite_sheet, IDLE_FRAMES[frame_index], CENTER_X)
 		update_canvas()
 		frame_index = (frame_index + 1) % len(IDLE_FRAMES)
-		delay(0.01)
+		delay(FRAME_TIME)
 	close_canvas()
 
 
