@@ -176,8 +176,9 @@ def main():
 			break
 		now = get_time()
 		name, frame_time, moves, frames = ANIMATIONS[animation_index]
+		x = get_x(moves, frames, frame_time, started_at, now)
 		clear_canvas()
-		draw_frame(sprite_sheet, frames[frame_index], CENTER_X)
+		draw_frame(sprite_sheet, frames[frame_index], x)
 		update_canvas()
 		if pause_started_at is not None:
 			if now - pause_started_at >= PAUSE_TIME:
