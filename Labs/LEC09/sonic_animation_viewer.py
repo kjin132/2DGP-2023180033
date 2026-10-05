@@ -117,6 +117,23 @@ def get_bottom(top, height):
 	return SPRITE_HEIGHT - top - height
 
 
+def draw_frame(sprite_sheet, frame, x):
+	left, top, width, height, pivot_x, pivot_y = frame
+	bottom = get_bottom(top, height)
+	draw_x = x + (width / 2 - pivot_x) * SCALE
+	draw_y = FLOOR_Y + (pivot_y - height / 2) * SCALE
+	sprite_sheet.clip_draw(
+		left,
+		bottom,
+		width,
+		height,
+		draw_x,
+		draw_y,
+		width * SCALE,
+		height * SCALE,
+	)
+
+
 def handle_events():
 	for event in get_events():
 		if event.type == SDL_QUIT:
