@@ -113,6 +113,10 @@ ANIMATIONS = [
 ]
 
 
+def get_bottom(top, height):
+	return SPRITE_HEIGHT - top - height
+
+
 def handle_events():
 	for event in get_events():
 		if event.type == SDL_QUIT:
