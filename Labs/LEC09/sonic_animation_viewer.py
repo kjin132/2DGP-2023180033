@@ -17,6 +17,15 @@ def handle_events():
 
 def main():
 	open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+	sprite_sheet = load_image(SPRITE_PATH)
+	running = True
+	while running:
+		running = handle_events()
+		if not running:
+			break
+		clear_canvas()
+		update_canvas()
+		delay(0.01)
 	close_canvas()
 
 
