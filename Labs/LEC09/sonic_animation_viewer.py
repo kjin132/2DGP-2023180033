@@ -170,10 +170,12 @@ def main():
 		if pause_started_at is not None:
 			if now - pause_started_at >= PAUSE_TIME:
 				pause_started_at = None
+				animation_index = (animation_index + 1) % len(ANIMATIONS)
 				frame_index = 0
 				repeat_count = 0
 				started_at = now
 				frame_changed_at = now
+				name, frame_time, moves, frames = ANIMATIONS[animation_index]
 		elif now - frame_changed_at >= frame_time:
 			frame_changed_at = now
 			if frame_index + 1 < len(frames):
