@@ -167,7 +167,14 @@ def main():
 		clear_canvas()
 		draw_frame(sprite_sheet, frames[frame_index], CENTER_X)
 		update_canvas()
-		if now - frame_changed_at >= frame_time:
+		if pause_started_at is not None:
+			if now - pause_started_at >= PAUSE_TIME:
+				pause_started_at = None
+				frame_index = 0
+				repeat_count = 0
+				started_at = now
+				frame_changed_at = now
+		elif now - frame_changed_at >= frame_time:
 			frame_changed_at = now
 			if frame_index + 1 < len(frames):
 				frame_index += 1
@@ -175,6 +182,8 @@ def main():
 				repeat_count += 1
 				if repeat_count < REPEAT_COUNT:
 					frame_index = 0
+				else:
+					pause_started_at = now
 		delay(0.01)
 	close_canvas()
 
