@@ -172,7 +172,9 @@ def main():
 			if frame_index + 1 < len(frames):
 				frame_index += 1
 			else:
-				frame_index = 0
+				repeat_count += 1
+				if repeat_count < REPEAT_COUNT:
+					frame_index = 0
 		delay(0.01)
 	close_canvas()
 
