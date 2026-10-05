@@ -138,6 +138,14 @@ def get_next_animation_index(animation_index):
 	return (animation_index + 1) % len(ANIMATIONS)
 
 
+def get_x(moves, frames, frame_time, started_at, now):
+	if not moves:
+		return CENTER_X
+	total_time = REPEAT_COUNT * len(frames) * frame_time
+	progress = min((now - started_at) / total_time, 1.0)
+	return START_X + (END_X - START_X) * progress
+
+
 IDLE_ANIMATION = ANIMATIONS[0]
 IDLE_FRAMES = IDLE_ANIMATION[3]
 FRAME_TIME = IDLE_ANIMATION[1]
