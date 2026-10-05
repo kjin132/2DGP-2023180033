@@ -5,6 +5,9 @@ CANVAS_WIDTH = 1200
 CANVAS_HEIGHT = 600
 SPRITE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sonic-sprite.png")
 SPRITE_HEIGHT = 525
+SCALE = 8
+REPEAT_COUNT = 5
+PAUSE_TIME = 1.0
 
 
 def handle_events():
